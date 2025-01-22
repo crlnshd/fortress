@@ -18,9 +18,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
+          
+      - name: install dependencies
       - run: npm install
+      
+      - name: build the project
       - run: npm run build
+      
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "dist/"
 
   deploy:
     needs: build
