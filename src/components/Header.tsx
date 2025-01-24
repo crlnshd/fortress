@@ -30,11 +30,15 @@ export function Header() {
         } else if (json.record && Array.isArray(json.record)) {
           setData(json.record);
         } else {
-          console.error("Unexpected data structure:", json);
+          console.error("Unexpected data structure: ", json);
           setData([]);
         }
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("unknown error");
+        }
       }
     };
 
