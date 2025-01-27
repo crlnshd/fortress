@@ -2,11 +2,17 @@ import { useState, useEffect } from "react";
 
 interface Item {
   id: number;
-  name: string;
+  name?: string;
+}
+interface Item2 {
+  id: number;
+  url_image?: string;
 }
 
+type HeaderData = Item | Item2;
+
 export function Header() {
-  const [data, setData] = useState<Item[]>([]);
+  const [data, setData] = useState<HeaderData[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -47,12 +53,29 @@ export function Header() {
 
   return (
     <>
-      {error && <p>Error: {error}</p>} {}
-      {data.map((item) => (
-        <div key={item.id}>
-          <p>{item.name}</p>
-        </div>
-      ))}
+      <header className="header">
+        {error && <p>Error: {error}</p>}
+        {data
+          .filter((item) => "url_image" in item && item.url_image)
+          .map((item) => (
+            <img
+              key={item.id}
+              src={(item as Item2).url_image}
+              alt={`Logo ${item.id}`}
+              className={`logo-${item.id} ${item.id === 7 ? "logo" : ""}`}
+            />
+          ))}
+
+        <ul className="header-items">
+          {data
+            .filter((item) => "name" in item && item.name)
+            .map((item) => (
+              <li key={item.id} className="header-item">
+                {(item as Item).name}
+              </li>
+            ))}
+        </ul>
+      </header>
     </>
   );
 }
