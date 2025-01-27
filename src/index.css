@@ -1,1 +1,11 @@
 @import url("./styles/header.css");
+@import url("./styles/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;700&family=Kurale&display=swap");
+@import url("./styles/backgroundCircles.css");
+@import url("./styles/mainSection.css");
+
+body {
+  margin: 0;
+  font-family: "Kurale", sans-serif;
+  background-color: #08011a;
+}
