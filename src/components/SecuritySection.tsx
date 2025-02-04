@@ -27,7 +27,7 @@ export const SecuritySection = ({
 
       <div className="security-grid">
         {images.map((image, index) => (
-          <div key={image.id_image} className="security-item">
+          <div key={image.src} className="security-item">
             <img src={image.src} alt={image.alt} className="security-image" />
             <div className="security-text">{texts[index].text}</div>
           </div>

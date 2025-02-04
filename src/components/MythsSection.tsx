@@ -86,7 +86,7 @@ export const MythSection = ({ mythsSectionData }: MythsSectionProps) => {
         <div className="image-grid">
           {groupedImages[validIndex]?.map((image, index) => (
             <img
-              key={image.id_image}
+              key={image.src}
               src={image.src}
               alt={image.alt}
               className={`myth-image myth-image-${index}`}

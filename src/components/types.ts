@@ -4,7 +4,6 @@ export interface NavItem {
 }
 
 export interface Image {
-  id_image: string;
   src: string;
   alt: string;
 }
@@ -31,11 +30,15 @@ export interface HeaderData {
   nav: NavItem[];
 }
 
+export interface HistorySectionData extends SectionData {
+  jumpingImages?: Image[];
+}
+
 export interface FortressData {
   header: HeaderData;
   aboutSection: SectionData;
   knowMoreSection: SectionData;
-  historySection: SectionData & { jumpingImages?: Image[] };
+  historySection: HistorySectionData;
   mythsSection: {
     content: Myth[];
     images: Image[];

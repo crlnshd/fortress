@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { SectionData, Image } from "./types";
+import { HistorySectionData, Image } from "./types";
 
 type HistorySectionProps = {
-  historySectionData: SectionData & { jumpingImages?: Image[] };
+  historySectionData: HistorySectionData;
 };
 
 export const HistorySection = ({ historySectionData }: HistorySectionProps) => {
