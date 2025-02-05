@@ -1,35 +1,32 @@
-import { Image, SecurityDetail } from "./types";
+import { SecurityDetail } from "./types";
 
 type SecuritySectionProps = {
   securitySectionData: {
     content: SecurityDetail[];
-    images: Image[];
   };
 };
 
 export const SecuritySection = ({
   securitySectionData,
 }: SecuritySectionProps) => {
-  if (
-    !securitySectionData ||
-    !securitySectionData.content ||
-    !securitySectionData.images
-  )
-    return null;
+  if (!securitySectionData || !securitySectionData.content) return null;
 
-  const texts = securitySectionData.content;
-  const images = securitySectionData.images;
+  const securityData = securitySectionData.content;
 
   return (
-    <section className="security-section">
+    <section id="security" className="security-section">
       <p className="p-security-title">Охорона</p>
       <div className="rectangle-security"></div>
 
       <div className="security-grid">
-        {images.map((image, index) => (
-          <div key={image.src} className="security-item">
-            <img src={image.src} alt={image.alt} className="security-image" />
-            <div className="security-text">{texts[index].text}</div>
+        {securityData.map((data, index) => (
+          <div key={index} className="security-item">
+            <img
+              src={data.image.src}
+              alt={data.image.alt}
+              className="security-image"
+            />
+            <div className="security-text">{data.text}</div>
           </div>
         ))}
       </div>

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Explorer, Image } from "./types";
+import { Explorer } from "./types";
 
 type ReviewSectionProps = {
   explorersSectionData: {
     content: Explorer[];
-    images: Image[];
   };
 };
 
@@ -13,8 +12,8 @@ export const ReviewSection = ({ explorersSectionData }: ReviewSectionProps) => {
   const [hiddenIndices, setHiddenIndices] = useState<number[]>([]);
 
   const explorers = explorersSectionData.content;
-  const images = explorersSectionData.images;
   const textArray = explorers[currentIndex].text.split(" ");
+  const currentImage = explorers[currentIndex].image;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,14 +36,14 @@ export const ReviewSection = ({ explorersSectionData }: ReviewSectionProps) => {
   };
 
   return (
-    <section className="review-section">
+    <section id="reviews" className="review-section">
       <p className="p-review-title">Відгуки дослідників</p>
       <div className="rectangle-review"></div>
 
       <div className="review-content">
         <img
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt}
+          src={currentImage.src}
+          alt={currentImage.alt}
           className="review-image"
         />
 

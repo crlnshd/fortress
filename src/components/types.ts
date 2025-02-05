@@ -19,10 +19,12 @@ export interface Myth {
 
 export interface Explorer {
   text: string;
+  image: Image;
 }
 
 export interface SecurityDetail {
   text: string;
+  image: Image;
 }
 
 export interface HeaderData {
@@ -45,11 +47,9 @@ export interface FortressData {
   };
   explorersSection: {
     content: Explorer[];
-    images: Image[];
   };
   securitySection: {
     content: SecurityDetail[];
-    images: Image[];
   };
   contactsSection: {
     content: string;
