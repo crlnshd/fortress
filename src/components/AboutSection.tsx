@@ -6,7 +6,7 @@ type AboutSectionProps = {
 
 export const AboutSection = ({ aboutSectionData }: AboutSectionProps) => {
   return (
-    <section className="main-section">
+    <section id="about" className="main-section">
       <ul className="main-items">
         <li className="main-item first-section">
           <div className="content-wrapper">

@@ -29,7 +29,7 @@ export const ContactsSection = ({
   );
 
   return (
-    <section className="contacts-section">
+    <section id="contacts" className="contacts-section">
       <p className="p-contacts-title">Контакти</p>
       <div className="rectangle-contacts"></div>
 

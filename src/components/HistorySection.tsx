@@ -49,7 +49,7 @@ export const HistorySection = ({ historySectionData }: HistorySectionProps) => {
   if (!images) return null;
 
   return (
-    <section className="history-section">
+    <section id="history" className="history-section">
       <p className="p-history"> Історія будівництва</p>
       <div className="rectangle-history"></div>
       <div className="content-history">

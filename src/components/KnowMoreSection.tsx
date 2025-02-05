@@ -47,7 +47,7 @@ export const KnowMoreSection = ({
   if (!images) return null;
 
   return (
-    <section className="know-more">
+    <section id="knowmore" className="know-more">
       <p className="p-ques">Чи готові ви дізнатися більше?</p>
       <div className="rectangle"></div>
       <div className="content-container">

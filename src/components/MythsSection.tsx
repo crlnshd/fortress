@@ -51,7 +51,7 @@ export const MythSection = ({ mythsSectionData }: MythsSectionProps) => {
   };
 
   return (
-    <section className="myth-section">
+    <section id="myths" className="myth-section">
       <div className="mythpart1">
         <p className="p-myth">Міфи про фортецю</p>
         <div className="rectangle-myth"></div>
