@@ -42,3 +42,35 @@
     text-shadow: 0px 0px 20px #1a00ff;
   }
 }
+
+@media (max-width: 1380px) {
+  .p-contacts-text {
+    font-size: 20px;
+  }
+  .p-contacts-title {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-contacts-text {
+    font-size: 20px;
+  }
+}
+@media (max-width: 970px) {
+  .p-contacts-text {
+    font-size: 17px;
+    padding-bottom: 2%;
+  }
+  .p-contacts-title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 680px) {
+  .p-contacts-text {
+    font-size: 13px;
+  }
+  .p-contacts-title {
+    font-size: 17px;
+  }
+}

@@ -6,3 +6,28 @@
   background-color: #220161;
   box-shadow: 0px 4px 20px 20px #220161;
 }
+@media (max-width: 1380px) {
+  .footer-section {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-section {
+    font-size: 20px;
+    height: 30px;
+  }
+}
+@media (max-width: 970px) {
+  .footer-section {
+    font-size: 17px;
+    padding-bottom: 2%;
+    height: 25px;
+  }
+}
+@media (max-width: 680px) {
+  .footer-section {
+    font-size: 13px;
+    height: 15px;
+  }
+}

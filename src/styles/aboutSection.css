@@ -10,30 +10,23 @@
   text-align: center;
 }
 
-.p-1 {
-  padding: 2%;
-  padding-top: 11%;
-}
-
 .first-section .content-wrapper {
   display: flex;
   margin-left: 5%;
   margin-right: 5%;
-}
-.second-section .content-wrapper {
-  display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .first-section .content-wrapper img {
   max-width: 25%;
+  height: auto;
 }
 
 .first-section .p {
   text-align: center;
+  margin: 0; /* Remove extra margin */
 }
-
 @media (max-width: 1380px) {
   .main-items {
     font-size: 20px;

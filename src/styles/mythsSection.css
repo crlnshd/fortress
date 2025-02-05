@@ -81,3 +81,58 @@
   border-image: linear-gradient(to right, #1a00ff, #000000, #ff00c8, #000000) 1;
   transform: scale(1.1);
 }
+
+@media (max-width: 1380px) {
+  .p-myth-text {
+    font-size: 20px;
+  }
+  .p-myth {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-myth {
+    font-size: 20px;
+  }
+  .p-history-content {
+    padding-top: 1%;
+  }
+  .myth-button {
+    padding: 7px 15px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 970px) {
+  .p-myth-text {
+    font-size: 17px;
+    width: 89%;
+    padding-bottom: 2%;
+  }
+  .p-myth {
+    font-size: 20px;
+  }
+  .myth-section {
+    flex-direction: column;
+  }
+  .mythpart2 {
+    display: flex;
+    padding-top: 5%;
+    flex-direction: column;
+  }
+}
+@media (max-width: 680px) {
+  .p-myth-text {
+    font-size: 13px;
+  }
+  .p-myth {
+    font-size: 17px;
+  }
+  .image-grid {
+    width: 75%;
+  }
+  .myth-button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}

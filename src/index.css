@@ -16,3 +16,6 @@ body {
   font-family: "Kurale", sans-serif;
   background-color: #08011a;
 }
+html {
+  scroll-behavior: smooth;
+}
