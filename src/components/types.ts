@@ -8,9 +8,12 @@ export interface Image {
   alt: string;
 }
 
-export interface SectionData {
+export interface BaseSectionData {
   content: string;
-  images?: Image[];
+}
+
+export interface SectionDataWithImage extends BaseSectionData {
+  images: Image[];
 }
 
 export interface Myth {
@@ -32,29 +35,30 @@ export interface HeaderData {
   nav: NavItem[];
 }
 
-export interface HistorySectionData extends SectionData {
+export interface HistorySectionData extends SectionDataWithImage {
   jumpingImages?: Image[];
+}
+
+export interface SecuritySectionData {
+  content: SecurityDetail[];
+}
+
+export interface ExplorerSectionData {
+  content: Explorer[];
+}
+export interface MythsSectionData {
+  content: Myth[];
+  images: Image[];
 }
 
 export interface FortressData {
   header: HeaderData;
-  aboutSection: SectionData;
-  knowMoreSection: SectionData;
+  aboutSection: SectionDataWithImage;
+  knowMoreSection: SectionDataWithImage;
   historySection: HistorySectionData;
-  mythsSection: {
-    content: Myth[];
-    images: Image[];
-  };
-  explorersSection: {
-    content: Explorer[];
-  };
-  securitySection: {
-    content: SecurityDetail[];
-  };
-  contactsSection: {
-    content: string;
-  };
-  footer: {
-    content: string;
-  };
+  mythsSection: MythsSectionData;
+  explorersSection: ExplorerSectionData;
+  securitySection: SecuritySectionData;
+  contactsSection: BaseSectionData;
+  footer: BaseSectionData;
 }

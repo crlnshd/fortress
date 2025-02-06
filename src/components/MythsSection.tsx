@@ -1,50 +1,29 @@
-import { useState, useEffect, useMemo } from "react";
-import { Image, Myth } from "./types";
+import { useState, useMemo } from "react";
+import { MythsSectionData } from "./types";
+import { useFlickerText } from "../hooks/useFlickerText";
 
 type MythsSectionProps = {
-  mythsSectionData: {
-    content: Myth[];
-    images: Image[];
-  };
+  mythsSectionData: MythsSectionData;
 };
 
-export const MythSection = ({ mythsSectionData }: MythsSectionProps) => {
-  const [selectedMythIndex, setSelectedMythIndex] = useState(0);
-  const [hiddenIndices, setHiddenIndices] = useState<number[]>([]);
+const IMAGES_PER_MYTH = 4;
 
-  const myths = mythsSectionData.content;
-  const imagesPerMyth = 4;
+export const MythSection = ({ mythsSectionData }: MythsSectionProps) => {
+  const { content: myths, images } = mythsSectionData;
+
+  const [selectedMythIndex, setSelectedMythIndex] = useState(0);
+
   const validIndex = Math.min(selectedMythIndex, myths.length - 1);
 
-  const textArray = useMemo(() => {
-    return myths.length > 0 ? myths[validIndex].text.split(" ") : [];
-  }, [validIndex, myths]);
+  const { textArray, hiddenIndices } = useFlickerText(myths[validIndex].text);
 
   const groupedImages = useMemo(() => {
     const result = [];
-    for (let i = 0; i < mythsSectionData.images.length; i += imagesPerMyth) {
-      result.push(mythsSectionData.images.slice(i, i + imagesPerMyth));
+    for (let i = 0; i < images.length; i += IMAGES_PER_MYTH) {
+      result.push(images.slice(i, i + IMAGES_PER_MYTH));
     }
     return result;
-  }, [mythsSectionData.images]);
-
-  useEffect(() => {
-    if (textArray.length === 0) return;
-
-    const interval = setInterval(() => {
-      const randomIndices = textArray
-        .map((_, index) => (Math.random() < 0.2 ? index : -1))
-        .filter((index) => index !== -1);
-
-      setHiddenIndices(randomIndices);
-
-      setTimeout(() => {
-        setHiddenIndices([]);
-      }, 300);
-    }, 1200);
-
-    return () => clearInterval(interval);
-  }, [textArray, selectedMythIndex]);
+  }, [images]);
 
   const handleMythChange = (index: number) => {
     setSelectedMythIndex(index);
@@ -84,7 +63,7 @@ export const MythSection = ({ mythsSectionData }: MythsSectionProps) => {
         </p>
 
         <div className="image-grid">
-          {groupedImages[validIndex]?.map((image, index) => (
+          {groupedImages[validIndex].map((image, index) => (
             <img
               key={image.src}
               src={image.src}

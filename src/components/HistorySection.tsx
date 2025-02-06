@@ -1,38 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HistorySectionData, Image } from "./types";
+import { useFlickerText } from "../hooks/useFlickerText";
 
 type HistorySectionProps = {
   historySectionData: HistorySectionData;
 };
 
 export const HistorySection = ({ historySectionData }: HistorySectionProps) => {
+  const { images, jumpingImages = [], content } = historySectionData;
+
+  const { textArray, hiddenIndices } = useFlickerText(content);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [scaryImage, setScaryImage] = useState<Image | null>(null);
-  const [hiddenIndices, setHiddenIndices] = useState<number[]>([]);
-
-  const images = historySectionData.images;
-  const jumpingImages = historySectionData.jumpingImages || [];
-  const textArray = historySectionData.content.split(" ");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndices = textArray
-        .map((_, index) => (Math.random() < 0.2 ? index : -1))
-        .filter((index) => index !== -1);
-
-      setHiddenIndices(randomIndices);
-
-      setTimeout(() => {
-        setHiddenIndices([]);
-      }, 300);
-    }, 1200);
-
-    return () => clearInterval(interval);
-  }, [textArray]);
 
   const changeImage = () => {
-    if (!images) return;
-
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
 
     if (jumpingImages.length > 0 && Math.random() < 0.4) {
@@ -45,8 +27,6 @@ export const HistorySection = ({ historySectionData }: HistorySectionProps) => {
       }, 1000);
     }
   };
-
-  if (!images) return null;
 
   return (
     <section id="history" className="history-section">

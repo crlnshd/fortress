@@ -8,7 +8,6 @@ import { ReviewSection } from "./components/ReviewsSection";
 import { SecuritySection } from "./components/SecuritySection";
 import { ContactsSection } from "./components/ContactsSection";
 import { Footer } from "./components/Footer";
-
 import { Background } from "./components/Background";
 import { useFortressData } from "./hooks/useFortressData";
 
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <>
-      <Header header={data.header} />
+      <Header headerData={data.header} />
       <Background />
       <AboutSection aboutSectionData={data.aboutSection} />
       <KnowMoreSection knowMoreSectionData={data.knowMoreSection} />

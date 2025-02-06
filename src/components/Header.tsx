@@ -1,17 +1,18 @@
 import { HeaderData } from "./types";
 
 type HeaderProps = {
-  header: HeaderData;
+  headerData: HeaderData;
 };
 
-export const Header = ({ header }: HeaderProps) => {
+export const Header = ({ headerData }: HeaderProps) => {
+  const { logo, nav } = headerData;
+
   return (
     <header className="header">
-      <img src={header.logo} alt="Logo" className="logo" />
-
+      <img src={logo} alt="Logo" className="logo" />
       <nav>
         <ul className="header-items">
-          {header.nav.map((item) => (
+          {nav.map((item) => (
             <li key={item.name} className="header-item">
               <a href={item.url}>{item.name}</a>
             </li>
