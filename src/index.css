@@ -1,1 +1,21 @@
 @import url("./styles/header.css");
+@import url("./styles/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Brygada+1918:wght@400;700&family=Kurale&display=swap");
+@import url("./styles/backgroundCircles.css");
+@import url("./styles/aboutSection.css");
+@import url("./styles/knowMoreSection.css");
+@import url("./styles/historySection.css");
+@import url("./styles/mythsSection.css");
+@import url("./styles/reviewsSection.css");
+@import url("./styles/securitySection.css");
+@import url("./styles/contactsSection.css");
+@import url("./styles/footer.css");
+
+body {
+  margin: 0;
+  font-family: "Kurale", sans-serif;
+  background-color: #08011a;
+}
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,125 @@
+.review-section {
+  text-align: center;
+  color: white;
+  line-height: 1.5;
+}
+
+.p-review-title {
+  font-size: 32px;
+  padding-top: 3%;
+}
+
+.rectangle-review {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, #ff00c8, #000000, #1a00ff, #000000);
+  margin: 0.4% auto;
+}
+
+.review-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 3.5% 2%;
+}
+
+.review-image {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+}
+
+.p-review-text {
+  font-size: 25px;
+  width: 50%;
+  text-align: center;
+}
+
+.hidden-text {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-review {
+  background: black;
+  color: white;
+  padding: 12px 24px;
+  font-size: 25px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-image: linear-gradient(to right, #ff00c8, #000000, #1a00ff, #000000) 1;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.6s ease;
+  font-family: "Kurale", sans-serif;
+}
+
+.button-review:hover {
+  border-image: linear-gradient(to right, #1a00ff, #000000, #ff00c8, #000000) 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 1380px) {
+  .p-review-text {
+    font-size: 20px;
+  }
+  .p-review-title {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-review-title {
+    font-size: 20px;
+  }
+
+  .button-review {
+    padding: 7px 15px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 970px) {
+  .p-review-text {
+    font-size: 17px;
+    padding-bottom: 2%;
+  }
+  .p-review-title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 680px) {
+  .p-review-text {
+    font-size: 13px;
+    width: 80%;
+  }
+  .p-review-title {
+    font-size: 17px;
+  }
+  .review-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+  }
+  .button-review {
+    padding: 5px 10px;
+    font-size: 13px;
+    padding: 1% 0;
+  }
+  .review-image {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+  }
+  .button-container {
+    margin-top: 0px;
+  }
+}
