@@ -9,9 +9,7 @@ type SecuritySectionProps = {
 export const SecuritySection = ({
   securitySectionData,
 }: SecuritySectionProps) => {
-  if (!securitySectionData || !securitySectionData.content) return null;
-
-  const securityData = securitySectionData.content;
+  const { content } = securitySectionData;
 
   return (
     <section id="security" className="security-section">
@@ -19,7 +17,7 @@ export const SecuritySection = ({
       <div className="rectangle-security"></div>
 
       <div className="security-grid">
-        {securityData.map((data, index) => (
+        {content.map((data, index) => (
           <div key={index} className="security-item">
             <img
               src={data.image.src}

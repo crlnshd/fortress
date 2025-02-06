@@ -1,12 +1,10 @@
-import { SectionData } from "./types";
+import { BaseSectionData } from "./types";
 
 type FooterProps = {
-  footerData: SectionData;
+  footerData: BaseSectionData;
 };
 
 export const Footer = ({ footerData: footerData }: FooterProps) => {
-  if (!footerData || !footerData.content) return null;
-
   return (
     <footer className="footer-section">
       <div className="footer-content">{footerData.content}</div>

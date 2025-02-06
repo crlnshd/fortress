@@ -1,32 +1,30 @@
-import { SectionData } from "./types";
+import { BaseSectionData } from "./types";
 
 type ContactsSectionProps = {
-  contactsSectionData: SectionData;
+  contactsSectionData: BaseSectionData;
+};
+
+const BREAK_BEFORE_WORDS = [
+  "Адреса",
+  "Телефон",
+  "Електронна",
+  "Графік",
+  "Завітайте",
+];
+const LIST_BEFORE_WORDS = ["Адреса", "Телефон", "Електронна", "Графік"];
+
+const formatContent = (content: string) => {
+  return content
+    .replace(new RegExp(`(${BREAK_BEFORE_WORDS.join("|")})`, "g"), "\n$1")
+    .replace(new RegExp(`(${LIST_BEFORE_WORDS.join("|")})`, "g"), "● $1");
 };
 
 export const ContactsSection = ({
   contactsSectionData,
 }: ContactsSectionProps) => {
-  if (!contactsSectionData || !contactsSectionData.content) return null;
+  const { content } = contactsSectionData;
 
-  const breakBeforeWords = [
-    "Адреса",
-    "Телефон",
-    "Електронна",
-    "Графік",
-    "Завітайте",
-  ];
-  const listBeforeWords = ["Адреса", "Телефон", "Електронна", "Графік"];
-
-  let formattedContent = contactsSectionData.content.replace(
-    new RegExp(`(${breakBeforeWords.join("|")})`, "g"),
-    "\n$1"
-  );
-
-  formattedContent = formattedContent.replace(
-    new RegExp(`(${listBeforeWords.join("|")})`, "g"),
-    "● $1"
-  );
+  const formattedContent = formatContent(content);
 
   return (
     <section id="contacts" className="contacts-section">

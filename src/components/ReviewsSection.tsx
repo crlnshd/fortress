@@ -1,35 +1,21 @@
-import { useState, useEffect } from "react";
-import { Explorer } from "./types";
+import { useState } from "react";
+import { ExplorerSectionData } from "./types";
+import { useFlickerText } from "../hooks/useFlickerText";
 
 type ReviewSectionProps = {
-  explorersSectionData: {
-    content: Explorer[];
-  };
+  explorersSectionData: ExplorerSectionData;
 };
 
 export const ReviewSection = ({ explorersSectionData }: ReviewSectionProps) => {
+  const { content: explorers } = explorersSectionData;
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hiddenIndices, setHiddenIndices] = useState<number[]>([]);
 
-  const explorers = explorersSectionData.content;
-  const textArray = explorers[currentIndex].text.split(" ");
+  const { textArray, hiddenIndices } = useFlickerText(
+    explorers[currentIndex].text
+  );
+
   const currentImage = explorers[currentIndex].image;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndices = textArray
-        .map((_, index) => (Math.random() < 0.2 ? index : -1))
-        .filter((index) => index !== -1);
-
-      setHiddenIndices(randomIndices);
-
-      setTimeout(() => {
-        setHiddenIndices([]);
-      }, 300);
-    }, 1200);
-
-    return () => clearInterval(interval);
-  }, [textArray, currentIndex]);
 
   const nextReview = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % explorers.length);
