@@ -10,6 +10,7 @@
 @import url("./styles/securitySection.css");
 @import url("./styles/contactsSection.css");
 @import url("./styles/footer.css");
+@import url("./styles/loadingSpinner.css");
 
 body {
   margin: 0;
