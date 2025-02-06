@@ -87,6 +87,10 @@
     flex-direction: column;
     margin-left: 4%;
     margin-right: 4%;
+    margin-top: 2%;
+  }
+  .p-review-text {
+    margin-top: 3%;
   }
 }
 @media (max-width: 680px) {
