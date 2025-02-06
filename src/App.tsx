@@ -10,13 +10,14 @@ import { ContactsSection } from "./components/ContactsSection";
 import { Footer } from "./components/Footer";
 import { Background } from "./components/Background";
 import { useFortressData } from "./hooks/useFortressData";
+import { LoadingSpinner } from "./components/LoadingSpinner";
 
 function App() {
   const { data, error, loading } = useFortressData();
 
-  if (loading || !data) return <div>Loading ...</div>;
+  if (loading || !data) return <LoadingSpinner />;
 
-  if (error) return <div>Error: </div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <>
