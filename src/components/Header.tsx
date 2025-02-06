@@ -2,9 +2,10 @@ import { HeaderData } from "./types";
 
 type HeaderProps = {
   headerData: HeaderData;
+  sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> };
 };
 
-export const Header = ({ headerData }: HeaderProps) => {
+export const Header = ({ headerData, sectionRefs }: HeaderProps) => {
   const { logo, nav } = headerData;
   const handleScroll = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -12,12 +13,11 @@ export const Header = ({ headerData }: HeaderProps) => {
   ) => {
     event.preventDefault();
 
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-      });
-    }
+    const targetElement = sectionRefs[targetId]?.current;
+
+    if (!targetElement) return;
+
+    targetElement.scrollIntoView();
   };
 
   return (

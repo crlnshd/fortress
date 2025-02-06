@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { BaseSectionData } from "./types";
 
 type ContactsSectionProps = {
@@ -19,28 +20,28 @@ const formatContent = (content: string) => {
     .replace(new RegExp(`(${LIST_BEFORE_WORDS.join("|")})`, "g"), "● $1");
 };
 
-export const ContactsSection = ({
-  contactsSectionData,
-}: ContactsSectionProps) => {
-  const { content } = contactsSectionData;
+export const ContactsSection = forwardRef<HTMLDivElement, ContactsSectionProps>(
+  ({ contactsSectionData }, ref) => {
+    const { content } = contactsSectionData;
 
-  const formattedContent = formatContent(content);
+    const formattedContent = formatContent(content);
 
-  return (
-    <section id="contacts" className="contacts-section">
-      <p className="p-contacts-title">Контакти</p>
-      <div className="rectangle-contacts"></div>
+    return (
+      <section ref={ref} id="contacts" className="contacts-section">
+        <p className="p-contacts-title">Контакти</p>
+        <div className="rectangle-contacts"></div>
 
-      <p className="p-contacts-text">
-        {formattedContent.split("\n").map((line, index) => (
-          <span key={index}>
-            {line.trim()}
-            <br />
-          </span>
-        ))}
-      </p>
+        <p className="p-contacts-text">
+          {formattedContent.split("\n").map((line, index) => (
+            <span key={index}>
+              {line.trim()}
+              <br />
+            </span>
+          ))}
+        </p>
 
-      <div className="rectangle-footer"></div>
-    </section>
-  );
-};
+        <div className="rectangle-footer"></div>
+      </section>
+    );
+  }
+);
