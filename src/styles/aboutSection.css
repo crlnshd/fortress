@@ -25,7 +25,7 @@
 
 .first-section .p {
   text-align: center;
-  margin: 0; /* Remove extra margin */
+  margin: 0;
 }
 @media (max-width: 1380px) {
   .main-items {
@@ -51,7 +51,7 @@
   }
 
   .first-section .content-wrapper img {
-    max-width: 60%;
+    max-width: 40%;
     margin-bottom: 10px;
   }
 
